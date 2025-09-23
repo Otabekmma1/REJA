@@ -49,14 +49,29 @@
 
 //===========================   TASK A =========================
 
-function countLetter(letter, word) {
-    if (typeof letter == 'number' || word == 'number') return "Argument string formatta bolishi kerak";
+// function countLetter(letter, word) {
+//     if (typeof letter == 'number' || word == 'number') return "Argument string formatta bolishi kerak";
+//     let count = 0;
+//     for (let char of word) {
+//         if (char.toLowerCase() == letter.toLowerCase()) count ++;
+//     };
+//     return count;
+// };
+
+// const result = countLetter("s", "sdgfsdg");
+// console.log(result);
+
+
+//============================ TASK B =======================================
+
+function countDigit(value) {
     let count = 0;
-    for (let char of word) {
-        if (char.toLowerCase() == letter.toLowerCase()) count ++;
-    };
+    for (i in value) {
+        if (!isNaN(value[i])) count ++
+    }; 
     return count;
 };
 
-const result = countLetter("s", "sdgfsdg");
-console.log(result);
+const result = countDigit("ad2a54y79wet0sfgb9");
+console.log(result)
+
