@@ -3,6 +3,16 @@ console.log("Web Server runned");
 const express = require('express');
 const app = express();
 const http = require('http');
+const fs = require("fs");
+const { json } = require('stream/consumers');
+
+fs.readFile("./database/user.json", "utf-8", (err, data) => {
+    if(err) {
+        console.log("ERROR:", err);
+    } else {
+        user = JSON.parse(data);
+    };
+});
 
 //1:Kirish code
 app.use(express.static('public'));
@@ -22,7 +32,11 @@ app.get("/", function(req, res) {
 app.post('/create-item', (req, res) => {
     console.log(req.body);
     res.json({test: "success"});
-})
+});
+
+app.get("/author", (req, res) => {
+    res.render('author', { user: user });
+});
 
 
 const server = http.createServer(app);

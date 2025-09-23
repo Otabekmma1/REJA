@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/main.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+        <title>Portfolio</title>
+
+    </head>
+    <body>
+        <div class="frame">
+            <div class="main_frame">
+                <div class="left_frame">
+                    <div class="left_1">
+                        <div class="left_1-image">
+                            <img src="images/profile.png" width="156px" height="142px" alt="">
+                        </div>
+                        <div class="left_1-name">
+                            <%=user.name%>
+                        </div>
+                        <div class="left_1-profession">
+                            <%=user.profession%>
+                        </div>
+                        <div class="left_1-icons">
+                            <a class="link_href" href="">
+                                <div class="icon">
+                                    <img src="icon/Dribbble.svg" class="icon-1"/>
+                                </div>
+                            </a>
+                            <a class="link_href" href="">
+                                <div class="icon">
+                                    <img src="icon/Facebook.svg" class="icon-1">
+                                </div>
+                            </a>
+                            <a class="link_href" href="">
+                                <div class="icon">
+                                    <img src="icon/Instagram.svg" class="icon-1">
+                                </div>
+                            </a>
+                            <a class="link_href" href="">
+                                <div class="icon">
+                                    <img src="icon/Linkeding.svg" class="icon-1">
+                                </div>
+                            </a>
+                            <a class="link_href" href="">
+                                <div class="icon">
+                                    <img src="icon/Twitter.svg" class="icon-1">
+                                </div>
+                            </a>
+                             <a class="link_href" href="">
+                                <div class="icon">
+                                    <img src="icon/Youtube.svg" class="icon-1">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="marginer"></div>
+                    <div class="left_2">
+                        <div class="left_2-items">
+                            <div class="left_2-rectangle">
+                                <div class="left_2-key">Age:</div>
+                            </div>
+                            <div class="left_2-value"><%=user.age%></div>
+                        </div>
+                        <div class="left_2-items">
+                            <div class="left_2-rectangle">
+                                <div class="left_2-key">Residence:</div>
+                            </div>
+                            <div class="left_2-value"><%=user.residence%></div>
+                        </div>
+                        <div class="left_2-items">
+                            <div class="left_2-rectangle">
+                                <div class="left_2-key">Freelance:</div>
+                            </div>
+                            <div class="left_2-value" style="color: var(--Available, #7EB942);"><%=user.freelance%></div>
+                        </div>
+                        <div class="left_2-items">
+                            <div class="left_2-rectangle">
+                                <div class="left_2-key">Address:</div>
+                            </div>
+                            <div class="left_2-value"><%=user.address%></div>
+                        </div>
+                    </div>
+                    <div class="marginer"></div>
+                    <div class="left_3">
+                        <h1>Languages</h1>
+                        <% for (let i=0; i < user.languages.length; i++) { %>
+                            <div class="l3_items">
+                                <div class="l3_key"><%=user.languages[i]%></div>
+                                <div class="l3_value">100%</div>
+                            </div>
+                            <div class="l3_line">
+                                <div class="l3_line-item"></div>
+                            </div>  
+                        <% } %>
+                   
+                    </div>
+                    <div class="marginer"></div>
+                    <div class="left_4">
+                        <h1>Skills</h1>
+                        <% for (let key in user.skills) { %>
+                        <div class="l4_items">
+                            <div class="l4_key"><%=key%></div>
+                        
+                            <div class="l4_value " ><%=user.skills[key]%></div>
+                        </div>
+                        <div class="l4_line">
+                            <div class="l4_line-item" data-skill="<%= user.skills[key] %>"></div>
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="marginer"></div>
+                    <div class="left_5">
+                        <h1>Extra Skills</h1>
+                        <ul class="extra_skill-list">
+                            <% user.extra_skills.forEach(function(skill) { %>
+                            <li class="extra_skill-item">
+                                <img src="icon/icons.jpg" alt="skill icon" class="extra_skill-icon">
+                                <span class="extra_skill-text"><%= skill %></span>
+                            </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="midd_frame">
+                    <div class="midd_frame-1">
+                        <div class="main_menu-left">
+                            <h1 class="main_left-title">Doctor neurologists in OHSU Hospital </h1>
+                            <p class="main_left-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
+                            <button><p class="main_left-btn-txt">HIRE ME -></p></button>
+                        </div>
+                        <div class="main_menu-right">
+                            <img src="images/avatar.svg", width="326.055px" height="446.633px" alt="">
+                        </div>
+                        <div class="decor-icon icon-1">
+                            <!-- sariq dumaloq svg -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                <path d="M8.45654 1.32812C12.3542 1.32812 15.4653 4.39194 15.4653 8.11133C15.4652 11.8306 12.3541 14.8936 8.45654 14.8936C4.5592 14.8933 1.44889 11.8305 1.44873 8.11133C1.44873 4.39207 4.5591 1.32835 8.45654 1.32812Z" stroke="#FFB400" stroke-opacity="0.8" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="decor-icon icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                <path d="M8.55615 1.26367C12.4538 1.26367 15.5649 4.32748 15.5649 8.04688C15.5648 11.7661 12.4537 14.8291 8.55615 14.8291C4.65881 14.8289 1.5485 11.766 1.54834 8.04688C1.54834 4.32762 4.65871 1.2639 8.55615 1.26367Z" stroke="#05FF00" stroke-opacity="0.8" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="decor-icon icon-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                <path d="M8.11084 1.22363C12.0085 1.22363 15.1196 4.28744 15.1196 8.00684C15.1195 11.7261 12.0084 14.7891 8.11084 14.7891C4.2135 14.7888 1.10318 11.726 1.10303 8.00684C1.10303 4.28758 4.2134 1.22386 8.11084 1.22363Z" stroke="#05FF00" stroke-opacity="0.8" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="decor-icon icon-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                <path d="M8.11084 1.22363C12.0085 1.22363 15.1196 4.28744 15.1196 8.00684C15.1195 11.7261 12.0084 14.7891 8.11084 14.7891C4.2135 14.7888 1.10318 11.726 1.10303 8.00684C1.10303 4.28758 4.2134 1.22386 8.11084 1.22363Z" stroke="#05FF00" stroke-opacity="0.8" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="midd_frame-2">
+                        <div class="my_services-items">
+                            <div class="my_services-title"><h1>My Services</h1></div>
+                            <div class="my_services-about"><p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum</p></div>
+                        </div>
+                        <div class="my_services-cards">
+                            <div class="card">
+                                <img src="menu_icon/coding.jpg" alt="">
+                                <h4>web development</h4>
+                                <p>blog, e-commerce</p>
+                            </div>
+                            <div class="card">
+                                <img src="menu_icon/illustration.jpg" alt="">
+                                <h4>uI/uX design</h4>
+                                <p>Mobile app, website design</p>
+                            </div>
+                            <div class="card">
+                                <img src="menu_icon/Microphone.jpg" alt="">
+                                <h4>sound design</h4>
+                                <p>Voice Over, Beat Making</p>
+                            </div>
+                            <div class="card">
+                                <img src="menu_icon/game.jpg" alt="">
+                                <h4>game design</h4>
+                                <p>Character Design, Props & Objects</p>
+                            </div>
+                            <div class="card">
+                                <img src="menu_icon/Photographer.jpg" alt="">
+                                <h4>photography</h4>
+                                <p>portrait, product photography</p>
+                            </div>
+                            <div class="card">
+                                <h4>advertising</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. </p>
+                                <div class="card-link">
+                                    <a href="#">ORDER NOW</a>
+                                    <img src="menu_icon/Frame.svg", alt="">
+                                </div>
+                            </div> 
+
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="right_frame">
+                    <div class="btn-icon btn-lg mt-50">
+                        <a href="#"><img src="btn_icons/Contrast.jpg" alt="Contrast"></a>
+                    </div>
+                    <div class="btn-icon mt-212">
+                        <a href="#"><img src="btn_icons/Home.jpg" alt="Home"></a>
+                    </div>
+                    <div class="btn-icon mt-43">
+                        <a href="#"><img src="btn_icons/Service.jpg" alt="Service"></a>
+                    </div>
+                    <div class="btn-icon mt-43">
+                        <a href="#"><img src="btn_icons/Cv.jpg" alt="CV"></a>
+                    </div>
+                    <div class="btn-icon mt-43">
+                        <a href="#"><img src="btn_icons/Portfolio.jpg" alt="Portfolio"></a>
+                    </div>
+                          <div class="btn-icon mt-43">
+                        <a href="#"><img src="btn_icons/Blog.jpg" alt="blog"></a>
+                    </div>
+                          <div class="btn-icon mt-43">
+                        <a href="#"><img src="btn_icons/Contact.jpg" alt="Contact"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
