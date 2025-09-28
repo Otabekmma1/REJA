@@ -5,7 +5,7 @@ const app = express();
 
 //MongoDb call
 const db = require("./server").db('Reja').collection('plans');
-
+const mongodb = require('mongodb');
 
 //1:Kirish code
 app.use(express.static('public'));
@@ -36,15 +36,36 @@ app.post('/create-item', (req, res) => {
     const new_reja = req.body.reja;
     db.insertOne({reja: new_reja}, (err, data) => {
         if (err) {
-            console.log("ERROR:", err);
+            console.log("INSERT ERROR:", err);
             res.end("something went wrong");
         } else {
-            console.log(data);
-            console.log(data.insertedId)
             res.json({_id: data.insertedId, reja: new_reja});
         };
     });
+});
+
+app.post('/delete-item', (req, res) => {
+    const id = req.body.id;
+
+    db.deleteOne({_id: new mongodb.ObjectId(id)}, (err, data) => {
+        if (err) {
+            console.log("DELETE ERROR:", err);
+            res.end("somethin went wrong");
+        } else {
+            res.json({ status: "success" });
+        }
+    })
 })
- 
+
+app.post('/delete-all', (req, res) => {
+    db.deleteMany({}, (err, data) => {
+        if (err) {
+            console.log("ALL ITEMS DELETE ERROR:", err);
+            res.end("somethin went wrong");
+        } else {
+            res.json({ deletedCount: data.deletedCount});
+        }
+    })
+})
 
 module.exports = app;
