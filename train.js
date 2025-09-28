@@ -64,14 +64,23 @@
 
 //============================ TASK B =======================================
 
-function countDigit(value) {
-    let count = 0;
-    for (i in value) {
-        if (!isNaN(value[i])) count ++
-    }; 
-    return count;
-};
+// function countDigit(value) {
+//     let count = 0;
+//     for (i in value) {
+//         if (!isNaN(value[i])) count ++
+//     }; 
+//     return count;
+// };
 
-const result = countDigit("ad2a54y79wet0sfgb9");
-console.log(result)
+// const result = countDigit("ad2a54y79wet0sfgb9");
+// console.log(result)
 
+//=========================== TASK C ==========================================
+
+function checkContent(v1, v2) {
+    const sorted_v1 = v1.toLowerCase().split("").sort().join("");
+    const sorted_v2 = v2.toLowerCase().split("").sort().join("");
+    return sorted_v1 === sorted_v2;
+}
+
+console.log(checkContent('mike', 'kime'))
