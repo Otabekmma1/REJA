@@ -14,7 +14,7 @@
             <h1 class="display-4 text-center py-1">REJA VA MAQSADLAR</h1>
 
             <div class="jumbbotron p-3 shadow-sm">
-                <form class="create-form" action="/create-item" method="POST">
+                <form id="create-form" class="create-form" action="/create-item" method="POST">
                     <div class="d-flex align-items-center">
                         <input id="create-field" name="reja"
                         autofocus autocomplete="off"
@@ -39,5 +39,7 @@
             <button id="clean-all" class="btn btn-danger" style="border-radius: 20px;">Hammasini Rejalarni O'chirish</button>
 
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/browser.js"></script>
     </body>
 </html>
