@@ -57,6 +57,18 @@ app.post('/delete-item', (req, res) => {
     })
 })
 
+app.post('/edit-item', (req, res) => {
+    const data = req.body;
+
+    db.findOneAndUpdate(
+        {_id: new mongodb.ObjectId(data.id)},
+        { $set: {reja: data.new_input} },
+        function (err, data) {
+            res.json({state: "success", data: data})
+        }
+    )
+})
+
 app.post('/delete-all', (req, res) => {
     db.deleteMany({}, (err, data) => {
         if (err) {

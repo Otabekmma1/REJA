@@ -1,3 +1,4 @@
+
 console.log("JS runned");
 
 let createField = document.getElementById('create-field');
@@ -61,7 +62,7 @@ document.addEventListener("click", function(e) {
                 e.target.parentElement.parentElement.remove();
             })
             .catch(err => {
-                alert("Iltimos qaytadan harakat qiling!");
+                console.log("delete-item:", err)
             });
           } 
         }    
@@ -88,13 +89,40 @@ document.addEventListener("click", function(e) {
                     e.target.style.display = "none";
                 })
                 .catch(err => {
-                    alert(err)
+                    console.log("Delete-all:", err)
                 });
             }
         })
     };
 
     if (e.target.classList.contains("edit-me")) {
-        alert('update button bosildi')
+        const currentValue = e.target.parentElement.parentElement.querySelector(".item-text").innerHTML;
+        // let userInput = prompt("O'zgarishni kiriting",
+        //      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
+        Swal.fire({
+        title: "O'zgarishni kiriting",
+        input: 'text',
+        inputValue: currentValue,
+        showCancelButton: true,
+        confirmButtonText: 'Saqlash',
+        cancelButtonText: 'Bekor qilish',
+        inputValidator: (value) => {
+            if (!value) {
+                return 'Iltimos, bo\'sh qoldirmang!'
+            }
+        }
+        }).then(result => {
+            if (result.isConfirmed) {
+                axios.post("edit-item", {
+                    id: e.target.getAttribute("data-id"),
+                    new_input: result.value,
+                }).then(response => {
+                    console.log(response.data)
+                    e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = result.value
+                }).catch(err => {
+                    console.log("Edit item:", err)
+                })
+            }
+        })
     }
 });
