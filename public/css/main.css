@@ -1,0 +1,95 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  margin-top: 40px;
+}
+
+h1 {
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 25px;
+}
+
+.jumbbotron {
+  background: #f9fafc;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e1e5eb;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0,123,255,0.3);
+}
+
+.btn-primary {
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.list-group-item {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #e1e5eb;
+  background: #fdfdfd;
+  transition: 0.2s;
+}
+
+.list-group-item:hover {
+  background: #f1f5f9;
+  transform: translateX(3px);
+}
+
+.btn-danger, .btn-secondary {
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: scale(1.05);
+}
+
+#clean-all {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+#clean-all:hover {
+  background-color: #b21f2d;
+  transform: scale(1.03);
+}

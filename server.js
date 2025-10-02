@@ -13,7 +13,9 @@ mongodb.connect(
 (err, client) => {
     if (err) console.log("ERROR on connection MongoDB");
     else {
-        module.exports = client;
+        let db;
+        db = client.db('Reja').collection('plans');
+        module.exports = db;
         console.log("MongoDB connecton succeed");
         const app = require('./app');
         const server = http.createServer(app);

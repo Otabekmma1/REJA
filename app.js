@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 //MongoDb call
-const db = require("./server").db('Reja').collection('plans');
+const db = require("./server");
 const mongodb = require('mongodb');
 
 //1:Kirish code
@@ -39,20 +39,29 @@ app.post('/create-item', (req, res) => {
             console.log("INSERT ERROR:", err);
             res.end("something went wrong");
         } else {
-            res.json({_id: data.insertedId, reja: new_reja});
+            db.find().toArray((err, data) => {
+                if (data.length == 1) {
+                    res.json({_id: data.insertedId, reja: new_reja, newItem: true});
+                } else {
+                    res.json({_id: data.insertedId, reja: new_reja});
+                }
+            })
         };
     });
 });
 
 app.post('/delete-item', (req, res) => {
     const id = req.body.id;
-
     db.deleteOne({_id: new mongodb.ObjectId(id)}, (err, data) => {
         if (err) {
             console.log("DELETE ERROR:", err);
             res.end("somethin went wrong");
         } else {
-            res.json({ status: "success" });
+            db.find().toArray((err, data) => {
+                if (data.length == 0) {
+                    res.json({ status: "success", deletedAllItems: true})
+                } else res.json({ status: "success", deleteAllItems: false });
+            });
         }
     })
 })
