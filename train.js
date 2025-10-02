@@ -87,65 +87,73 @@
 
 
 //============================== TASK D =====================================   
-const chalk = require('chalk');
-const moment = require('moment');
-const time = moment().format("HH:mm");
+// const chalk = require('chalk');
+// const moment = require('moment');
+// const time = moment().format("HH:mm");
 
-class Shop {
+// class Shop {
 
-    constructor(iphone, macbook, airpods) {
-        this.products = {
-            iphone: iphone, 
-            macbook: macbook,
-            airpods: airpods
-        };
-    };
+//     constructor(iphone, macbook, airpods) {
+//         this.products = {
+//             iphone: iphone, 
+//             macbook: macbook,
+//             airpods: airpods
+//         };
+//     };
 
-    qoldiq() {
-        let result =  `============ QOLDIQ ============\n<<<<<< Hozirgi vaqt: ${time} >>>\n -------- Mahsulotlar -----------\n`
+//     qoldiq() {
+//         let result =  `============ QOLDIQ ============\n<<<<<< Hozirgi vaqt: ${time} >>>\n -------- Mahsulotlar -----------\n`
 
-        for (let key in this.products) {
-            result += `${key}: ${this.products[key]} ta\n`;
-        }
-        return result += "================================";
-    }
+//         for (let key in this.products) {
+//             result += `${key}: ${this.products[key]} ta\n`;
+//         }
+//         return result += "================================";
+//     }
 
-    sotish(product, quantity) {
-        if (!this.products[product]) {
-            console.log(chalk.red(`Mahsulot topilmadi !`));
-            console.log('================================');
-            return ;
-        }
+//     sotish(product, quantity) {
+//         if (!this.products[product]) {
+//             console.log(chalk.red(`Mahsulot topilmadi !`));
+//             console.log('================================');
+//             return ;
+//         }
 
-        if (quantity <= 0) {
-            console.log(chalk.red(`Quantity 0 dan katta bolishi kerak !`));
-            console.log('================================');
-            return ;
-        }
+//         if (quantity <= 0) {
+//             console.log(chalk.red(`Quantity 0 dan katta bolishi kerak !`));
+//             console.log('================================');
+//             return ;
+//         }
 
-        if (this.products[product] < quantity) {
-            console.log(chalk.red(`Yetarli ${product} yo'q!`));
-            console.log('================================');
-            return ;
-        }
+//         if (this.products[product] < quantity) {
+//             console.log(chalk.red(`Yetarli ${product} yo'q!`));
+//             console.log('================================');
+//             return ;
+//         }
 
-        this.products[product] -= quantity;
-        console.log(chalk.red(`----- ${quantity} ta ${product} sotildi !\n${chalk.blue(this.qoldiq())}`));
+//         this.products[product] -= quantity;
+//         console.log(chalk.red(`----- ${quantity} ta ${product} sotildi !\n${chalk.blue(this.qoldiq())}`));
 
-    }
+//     }
 
-    qabul(product, quantity) {
-        if (this.products[product]) {
-            this.products[product] += quantity;
-        } else {
-            this.products[product] = quantity;
-        }
-        console.log(chalk.red(`++++++ ${quantity} ta ${product} qo'shildi !\n${chalk.yellow(this.qoldiq())}`));
+//     qabul(product, quantity) {
+//         if (this.products[product]) {
+//             this.products[product] += quantity;
+//         } else {
+//             this.products[product] = quantity;
+//         }
+//         console.log(chalk.red(`++++++ ${quantity} ta ${product} qo'shildi !\n${chalk.yellow(this.qoldiq())}`));
+//     }
+// }
 
-    }
+// const shop = new Shop(4, 4, 4);
+// console.log(shop.qoldiq());
+// shop.sotish('iphone', 1);
+// shop.qabul("ipone", 5);
+
+
+//===================================   TASK E ==============================
+
+function getReverse(str) {
+    return str.split("").reverse().join("");
 }
 
-const shop = new Shop(4, 4, 4);
-console.log(shop.qoldiq());
-shop.sotish('iphone', 1);
-shop.qabul("ipone", 5);
+console.log(getReverse("MIKE"))
