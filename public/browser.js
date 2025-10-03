@@ -65,7 +65,6 @@ document.addEventListener("click", (e) => {
             text: "Bu amalni qaytarib bo‘lmaydi!",
             callback: () => {
                 postRequest("/delete-item", { id: target.dataset.id }, (response) => {
-                    console.log(response.data);
                     if (response.data['deletedAllItems']) {
                         deleteAllBtn.style.display = "none";
                     }

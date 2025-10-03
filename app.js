@@ -1,4 +1,4 @@
-console.log("Web Server runned");
+ console.log("Web Server runned");
 
 const express = require('express');
 const app = express();
@@ -34,16 +34,16 @@ app.post('/create-item', (req, res) => {
     console.log("user entered /create-item");
     console.log(req.body);
     const new_reja = req.body.reja;
-    db.insertOne({reja: new_reja}, (err, data) => {
+    db.insertOne({reja: new_reja}, (err, inserted_data) => {
         if (err) {
             console.log("INSERT ERROR:", err);
             res.end("something went wrong");
         } else {
             db.find().toArray((err, data) => {
                 if (data.length == 1) {
-                    res.json({_id: data.insertedId, reja: new_reja, newItem: true});
+                    res.json({_id: inserted_data.insertedId, reja: new_reja, newItem: true});
                 } else {
-                    res.json({_id: data.insertedId, reja: new_reja});
+                    res.json({_id: inserted_data.insertedId, reja: new_reja});
                 }
             })
         };
@@ -52,6 +52,7 @@ app.post('/create-item', (req, res) => {
 
 app.post('/delete-item', (req, res) => {
     const id = req.body.id;
+    console.log(id);
     db.deleteOne({_id: new mongodb.ObjectId(id)}, (err, data) => {
         if (err) {
             console.log("DELETE ERROR:", err);
