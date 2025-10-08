@@ -152,8 +152,25 @@
 
 //===================================   TASK E ==============================
 
-function getReverse(str) {
-    return str.split("").reverse().join("");
+// function getReverse(str) {
+//     return str.split("").reverse().join("");
+// }
+
+// console.log(getReverse("MIKE"))
+
+
+//================================ TASK F ==================================
+
+function findDoublers(str) {
+    const doubleWords = new Set();
+    for (const word of str) {
+        if (doubleWords.has(word)) {
+            return true;
+        }
+        doubleWords.add(word);
+    }
+    return false;
 }
 
-console.log(getReverse("MIKE"))
+console.log(findDoublers("hello"));
+console.log(findDoublers("helo"));
